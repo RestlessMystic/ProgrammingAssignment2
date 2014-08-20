@@ -1,7 +1,16 @@
-## Working
-## functions do
+# There are two functions. makeCacheMatrix function generates the functions
+# that are used by the cacheSolve function. CacheSolve function checks if the
+# inverse exists. If not, inverse is created.
 
-## Write a short comment describing this function
+
+
+
+# MakeCacheMatrix returns a list of functions
+#		set : Sets value to the matrix to the variable x
+#		get : Returns the value of the matrix
+#		setinv : Sets the inverse of the matrix to the variable inv
+#		getinv : Returns the inverse of the matrix, if it exists. Else NULL
+#
 
 makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL
@@ -18,7 +27,10 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+#cacheSolve checks for existence of inverse
+#		If inverse is already calculated, returns that value of inverse.
+# 		Else, Calculates inverse and saves it in the environment, and returns it.
+#
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -29,7 +41,7 @@ cacheSolve <- function(x, ...) {
                 return(inv)
         }
         data <- x$get()
-        inv <- solve(data, ...)
+        inv <- solve(data)
         x$setinv(inv)
         inv
 }
